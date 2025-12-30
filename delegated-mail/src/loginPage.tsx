@@ -70,7 +70,7 @@ function LoginPage({
       </section>
       <button
         onClick={register}
-        className="text-lg font-extrabold text-white px-3 bg-rose-500 rounded-md shadow py-2"
+        className="text-lg font-extrabold text-white px-3 bg-blue-500 rounded-md shadow py-2"
       >
         Login
       </button>
@@ -78,7 +78,7 @@ function LoginPage({
         Dont have an account ?{" "}
         <span
           onClick={() => setRegister(true)}
-          className="text-rose-500 font-extrabold"
+          className="text-blue-500 font-extrabold"
         >
           Register
         </span>

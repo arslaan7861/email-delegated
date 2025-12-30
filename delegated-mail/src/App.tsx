@@ -55,6 +55,12 @@ export default function App() {
             </b>
           </p>
           <MicrosoftSection setUser={setUser} user={user} />
+          <button
+            onClick={() => setUser(null)}
+            className="text-lg font-extrabold text-white px-3 bg-red-500 rounded-md shadow py-2"
+          >
+            Logout
+          </button>
         </div>
       ) : (
         <>
