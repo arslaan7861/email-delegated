@@ -65,7 +65,7 @@ export default function App() {
   };
 
   return (
-    <div>
+    <div className="w-screen h-svh ">
       {!accounts.length ? (
         <div>
           <p>Sign in with your Microsoft account to send emails.</p>
@@ -86,3 +86,33 @@ export default function App() {
     </div>
   );
 }
+
+export const msalConfig = {
+  auth: {
+    clientId: "09bb7e16-9a90-4ade-a82d-5461b29aa09a", // Replace with your Application (client) ID
+    authority: "https://login.microsoftonline.com/common",
+    redirectUri: "http://localhost:5173",
+  },
+  cache: {
+    cacheLocation: "sessionStorage",
+    storeAuthStateInCookie: false,
+  },
+};
+
+export const loginRequest = {
+  scopes: ["Mail.Send"],
+};
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+import App from "./App.jsx";
+import { msalConfig } from "./config/authconfig.js";
+import "./index.css";
+
+const msalInstance = new PublicClientApplication(msalConfig);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode></React.StrictMode>
+);
